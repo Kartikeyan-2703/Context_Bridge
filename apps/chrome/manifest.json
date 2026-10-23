@@ -1,0 +1,10 @@
+{
+  "manifest_version": 3,
+  "name": "Context Bridge",
+  "version": "1.0.0",
+  "description": "User-triggered, local-first AI conversation handoffs.",
+  "action": { "default_popup": "popup.html", "default_title": "Context Bridge" },
+  "permissions": ["activeTab", "downloads"],
+  "host_permissions": ["https://chatgpt.com/*", "https://chat.openai.com/*", "https://claude.ai/*"],
+  "content_scripts": [{ "matches": ["https://chatgpt.com/*", "https://chat.openai.com/*", "https://claude.ai/*"], "js": ["content.js"], "run_at": "document_idle" }]
+}

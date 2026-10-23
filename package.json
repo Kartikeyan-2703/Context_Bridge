@@ -8,8 +8,9 @@
     "apps/*"
   ],
   "scripts": {
-    "build": "npm run build --workspaces --if-present",
-    "test": "npm run test --workspaces --if-present"
+    "build": "npm run build --workspace @context-bridge/shared && npm run build --workspaces --if-present",
+    "test": "npm run build --workspace @context-bridge/shared && npm run test --workspaces --if-present",
+    "context-bridge": "npm run build --workspace @context-bridge/shared && npm run build --workspace @context-bridge/cli && node apps/cli/dist/main.js"
   },
   "dependencies": {
     "zod": "^4.6.7"

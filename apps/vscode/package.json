@@ -1,0 +1,22 @@
+{
+  "name": "context-bridge-vscode",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": { "vscode": "^1.85.0" },
+  "activationEvents": ["onCommand:contextBridge.inspectWorkspace", "onCommand:contextBridge.validateHandoff", "onCommand:contextBridge.generateHandoff", "onCommand:contextBridge.importSession", "onCommand:contextBridge.openHandoff"],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      { "command": "contextBridge.inspectWorkspace", "title": "Context Bridge: Inspect Workspace" },
+      { "command": "contextBridge.validateHandoff", "title": "Context Bridge: Validate Handoff" },
+      { "command": "contextBridge.generateHandoff", "title": "Context Bridge: Generate Handoff" },
+      { "command": "contextBridge.importSession", "title": "Context Bridge: Import Session Artifact" },
+      { "command": "contextBridge.openHandoff", "title": "Context Bridge: Open Generated HANDOFF.md" }
+    ],
+    "configuration": { "title": "Context Bridge", "properties": { "contextBridge.backendUrl": { "type": "string", "default": "", "description": "Optional Context Bridge backend URL. Uploading selected content always requires explicit confirmation." } } }
+  },
+  "scripts": { "build": "tsc -p tsconfig.json", "test": "npm run build --silent && vitest run" },
+  "dependencies": { "@context-bridge/shared": "1.0.0" },
+  "devDependencies": { "@types/node": "^26.6.5", "typescript": "^7.0.2", "vitest": "^5.0.4" }
+}
